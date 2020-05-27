@@ -1,6 +1,8 @@
 import 'dart:math';
 
-class CalculatorBrain {
+import 'package:flutter/cupertino.dart';
+
+class CalculatorBrain with ChangeNotifier {
   CalculatorBrain({this.height, this.weight});
 
   final int height;

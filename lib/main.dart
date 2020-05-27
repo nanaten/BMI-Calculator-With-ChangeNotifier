@@ -1,7 +1,16 @@
-import 'package:flutter/material.dart';
+import 'package:bmi_calculator/calculator_brain.dart';
 import 'package:bmi_calculator/screens/input_page.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-void main() => runApp(BMICalculator());
+void main() => runApp(MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => CalculatorBrain(height: 160, weight: 50),
+        )
+      ],
+      child: BMICalculator(),
+    ));
 
 class BMICalculator extends StatelessWidget {
   @override
