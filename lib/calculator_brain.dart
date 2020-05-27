@@ -29,6 +29,7 @@ class CalculatorBrain with ChangeNotifier {
 
   void updateGender(Gender newGender) {
     this.gender = newGender;
+    notifyListeners();
   }
 
   void incrementWeight() {

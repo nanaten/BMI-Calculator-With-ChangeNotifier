@@ -36,9 +36,7 @@ class _InputPageState extends State<InputPage> {
               Expanded(
                 child: ReusableCard(
                   onPress: () {
-                    setState(() {
-                      calc.updateGender(Gender.male);
-                    });
+                    calc.updateGender(Gender.male);
                   },
                   colour: calc.gender == Gender.male
                       ? kActiveCardColour
@@ -52,9 +50,7 @@ class _InputPageState extends State<InputPage> {
               Expanded(
                 child: ReusableCard(
                   onPress: () {
-                    setState(() {
-                      calc.updateGender(Gender.female);
-                    });
+                    calc.updateGender(Gender.female);
                   },
                   colour: calc.gender == Gender.female
                       ? kActiveCardColour
@@ -108,9 +104,7 @@ class _InputPageState extends State<InputPage> {
                       min: 120.0,
                       max: 220.0,
                       onChanged: (double newValue) {
-                        setState(() {
-                          calc.updateHeight(newValue);
-                        });
+                        calc.updateHeight(newValue);
                       },
                     ),
                   ),
@@ -141,9 +135,7 @@ class _InputPageState extends State<InputPage> {
                             RoundIconButton(
                                 icon: FontAwesomeIcons.minus,
                                 onPressed: () {
-                                  setState(() {
-                                    calc.decrementWeight();
-                                  });
+                                  calc.decrementWeight();
                                 }),
                             SizedBox(
                               width: 10.0,
@@ -151,9 +143,7 @@ class _InputPageState extends State<InputPage> {
                             RoundIconButton(
                               icon: FontAwesomeIcons.plus,
                               onPressed: () {
-                                setState(() {
-                                  calc.incrementWeight();
-                                });
+                                calc.incrementWeight();
                               },
                             ),
                           ],
@@ -182,11 +172,7 @@ class _InputPageState extends State<InputPage> {
                             RoundIconButton(
                               icon: FontAwesomeIcons.minus,
                               onPressed: () {
-                                setState(
-                                  () {
-                                    calc.decrementAge();
-                                  },
-                                );
+                                calc.decrementAge();
                               },
                             ),
                             SizedBox(
@@ -195,9 +181,7 @@ class _InputPageState extends State<InputPage> {
                             RoundIconButton(
                                 icon: FontAwesomeIcons.plus,
                                 onPressed: () {
-                                  setState(() {
-                                    calc.incrementAge();
-                                  });
+                                  calc.incrementAge();
                                 })
                           ],
                         )
