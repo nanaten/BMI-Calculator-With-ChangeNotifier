@@ -20,9 +20,6 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  Gender selectedGender;
-  int age = 20;
-
   @override
   Widget build(BuildContext context) {
     final calc = Provider.of<CalculatorBrain>(context, listen: true);
@@ -40,10 +37,10 @@ class _InputPageState extends State<InputPage> {
                 child: ReusableCard(
                   onPress: () {
                     setState(() {
-                      selectedGender = Gender.male;
+                      calc.updateGender(Gender.male);
                     });
                   },
-                  colour: selectedGender == Gender.male
+                  colour: calc.gender == Gender.male
                       ? kActiveCardColour
                       : kInactiveCardColour,
                   cardChild: IconContent(
@@ -56,10 +53,10 @@ class _InputPageState extends State<InputPage> {
                 child: ReusableCard(
                   onPress: () {
                     setState(() {
-                      selectedGender = Gender.female;
+                      calc.updateGender(Gender.female);
                     });
                   },
-                  colour: selectedGender == Gender.female
+                  colour: calc.gender == Gender.female
                       ? kActiveCardColour
                       : kInactiveCardColour,
                   cardChild: IconContent(
@@ -176,7 +173,7 @@ class _InputPageState extends State<InputPage> {
                           style: kLabelTextStyle,
                         ),
                         Text(
-                          age.toString(),
+                          calc.getAge(),
                           style: kNumberTextStyle,
                         ),
                         Row(
@@ -187,7 +184,7 @@ class _InputPageState extends State<InputPage> {
                               onPressed: () {
                                 setState(
                                   () {
-                                    age--;
+                                    calc.decrementAge();
                                   },
                                 );
                               },
@@ -199,7 +196,7 @@ class _InputPageState extends State<InputPage> {
                                 icon: FontAwesomeIcons.plus,
                                 onPressed: () {
                                   setState(() {
-                                    age++;
+                                    calc.incrementAge();
                                   });
                                 })
                           ],

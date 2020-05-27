@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:bmi_calculator/screens/input_page.dart';
 import 'package:flutter/cupertino.dart';
 
 class CalculatorBrain with ChangeNotifier {
@@ -7,8 +8,28 @@ class CalculatorBrain with ChangeNotifier {
 
   int height;
   int weight;
+  int age;
+  Gender gender;
 
   double _bmi = 0.0;
+
+  void incrementAge() {
+    age++;
+    notifyListeners();
+  }
+
+  void decrementAge() {
+    age--;
+    notifyListeners();
+  }
+
+  String getAge() {
+    return age.toString();
+  }
+
+  void updateGender(Gender newGender) {
+    this.gender = newGender;
+  }
 
   void incrementWeight() {
     weight++;
