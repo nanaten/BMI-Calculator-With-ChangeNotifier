@@ -5,10 +5,33 @@ import 'package:flutter/cupertino.dart';
 class CalculatorBrain with ChangeNotifier {
   CalculatorBrain({this.height, this.weight});
 
-  final int height;
-  final int weight;
+  int height;
+  int weight;
 
   double _bmi;
+
+  void incrementWeight() {
+    weight++;
+    notifyListeners();
+  }
+
+  void decrementWeight() {
+    weight--;
+    notifyListeners();
+  }
+
+  String getWeight() {
+    return weight.toString();
+  }
+
+  void updateHeight(double newValue) {
+    height = newValue.round();
+    notifyListeners();
+  }
+
+  String getHeight() {
+    return height.toString();
+  }
 
   String calculateBMI() {
     _bmi = weight / pow(height / 100, 2);
