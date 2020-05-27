@@ -8,7 +8,7 @@ class CalculatorBrain with ChangeNotifier {
   int height;
   int weight;
 
-  double _bmi;
+  double _bmi = 0.0;
 
   void incrementWeight() {
     weight++;
