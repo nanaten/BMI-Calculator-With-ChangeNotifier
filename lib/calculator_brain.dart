@@ -1,12 +1,59 @@
 import 'dart:math';
 
-class CalculatorBrain {
-  CalculatorBrain({this.height, this.weight});
+import 'package:bmi_calculator/screens/input_page.dart';
+import 'package:flutter/cupertino.dart';
 
-  final int height;
-  final int weight;
+class CalculatorBrain with ChangeNotifier {
+  CalculatorBrain({this.height, this.weight, this.age});
 
-  double _bmi;
+  int height;
+  int weight;
+  int age;
+  Gender gender;
+
+  double _bmi = 0.0;
+
+  void incrementAge() {
+    age++;
+    notifyListeners();
+  }
+
+  void decrementAge() {
+    age--;
+    notifyListeners();
+  }
+
+  String getAge() {
+    return age.toString();
+  }
+
+  void updateGender(Gender newGender) {
+    this.gender = newGender;
+    notifyListeners();
+  }
+
+  void incrementWeight() {
+    weight++;
+    notifyListeners();
+  }
+
+  void decrementWeight() {
+    weight--;
+    notifyListeners();
+  }
+
+  String getWeight() {
+    return weight.toString();
+  }
+
+  void updateHeight(double newValue) {
+    height = newValue.round();
+    notifyListeners();
+  }
+
+  String getHeight() {
+    return height.toString();
+  }
 
   String calculateBMI() {
     _bmi = weight / pow(height / 100, 2);

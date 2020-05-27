@@ -1,20 +1,14 @@
-import 'package:flutter/material.dart';
-import 'package:bmi_calculator/constants.dart';
-import 'package:bmi_calculator/components/reusable_card.dart';
+import 'package:bmi_calculator/calculator_brain.dart';
 import 'package:bmi_calculator/components/bottom_button.dart';
+import 'package:bmi_calculator/components/reusable_card.dart';
+import 'package:bmi_calculator/constants.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ResultsPage extends StatelessWidget {
-  ResultsPage(
-      {@required this.interpretation,
-      @required this.bmiResult,
-      @required this.resultText});
-
-  final String bmiResult;
-  final String resultText;
-  final String interpretation;
-
   @override
   Widget build(BuildContext context) {
+    final result = Provider.of<CalculatorBrain>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('BMI CALCULATOR'),
@@ -42,15 +36,15 @@ class ResultsPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    resultText.toUpperCase(),
+                    result.getResult().toUpperCase(),
                     style: kResultTextStyle,
                   ),
                   Text(
-                    bmiResult,
+                    result.calculateBMI(),
                     style: kBMITextStyle,
                   ),
                   Text(
-                    interpretation,
+                    result.getInterpretation(),
                     textAlign: TextAlign.center,
                     style: kBodyTextStyle,
                   ),
