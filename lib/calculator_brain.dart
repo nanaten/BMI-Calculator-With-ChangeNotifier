@@ -4,7 +4,7 @@ import 'package:bmi_calculator/screens/input_page.dart';
 import 'package:flutter/cupertino.dart';
 
 class CalculatorBrain with ChangeNotifier {
-  CalculatorBrain({this.height, this.weight});
+  CalculatorBrain({this.height, this.weight, this.age});
 
   int height;
   int weight;
