@@ -14,12 +14,7 @@ enum Gender {
   female,
 }
 
-class InputPage extends StatefulWidget {
-  @override
-  _InputPageState createState() => _InputPageState();
-}
-
-class _InputPageState extends State<InputPage> {
+class InputPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final calc = Provider.of<CalculatorBrain>(context, listen: true);
