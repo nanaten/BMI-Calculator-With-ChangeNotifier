@@ -75,7 +75,7 @@ class InputPage extends StatelessWidget {
                       textBaseline: TextBaseline.alphabetic,
                       children: <Widget>[
                         Text(
-                          calc.getHeight(),
+                          calc.getHeightString(),
                           style: kNumberTextStyle,
                         ),
                         Text(
@@ -96,7 +96,7 @@ class InputPage extends StatelessWidget {
                             RoundSliderOverlayShape(overlayRadius: 30.0),
                       ),
                       child: Slider(
-                        value: calc.height.toDouble(),
+                        value: calc.getHeight().toDouble(),
                         min: 120.0,
                         max: 220.0,
                         onChanged: (double newValue) {
