@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 void main() => runApp(MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => CalculatorBrain(height: 160, weight: 50, age: 20),
+          create: (_) => CalculatorBrain(),
         )
       ],
       child: BMICalculator(),
